@@ -15,7 +15,7 @@
             @csrf
             <div class="form-group">
                 <label>Email address</label>
-                <input type="email" required class="form-control @error('email') is-invalid @enderror" placeholder="yourname@yourmail.com">
+                <input type="email" required name="email" class="form-control @error('email') is-invalid @enderror" placeholder="yourname@yourmail.com">
                 @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                     <a href="{{route('password.request')}}" class="tx-13">Forgot password?</a>
                     @endif
                 </div>
-                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter your password">
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter your password">
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
             <div class="form-group row">
                 <div class="col-md-6">
                     <div class="form-check">
-                        <input class="form-check-input" required type="checkbox" name="remember" id="remember"
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
                             {{ old('remember') ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="remember">

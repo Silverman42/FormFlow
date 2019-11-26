@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 /*Hide all registration routes*/
-Auth::routes(['register'=>false]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -26,6 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::name('admin.')
 ->prefix('admin')
 ->namespace('Admin')
+->middleware([
+    'role:admin'
+])
 ->group(base_path('routes/app/admin.php'));
 
 
@@ -35,4 +38,7 @@ Route::name('admin.')
 Route::name('client.')
 ->prefix('client')
 ->namespace('Client')
+->middleware([
+    'role:client'
+])
 ->group(base_path('routes/app/client.php'));

@@ -268,7 +268,10 @@
                     <a href="" class="dropdown-item"><i data-feather="life-buoy"></i> Forum</a>
                     <a href="" class="dropdown-item"><i data-feather="settings"></i>Account Settings</a>
                     <a href="" class="dropdown-item"><i data-feather="settings"></i>Privacy Settings</a>
-                    <a href="page-signin.html" class="dropdown-item"><i data-feather="log-out"></i>Sign Out</a>
+                    <form action="{{route('logout')}}" method="post">
+                        @csrf
+                        <button class="btn btn-block btn-primary mg-t-5" type="submit"><i data-feather="log-out"></i>&nbsp; Sign Out</button>
+                    </form>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
         </div><!-- navbar-right -->
