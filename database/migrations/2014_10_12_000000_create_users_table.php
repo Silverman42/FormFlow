@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->default(false);
             $table->string('avatar',122)->nullable();
             $table->string('password',122)->nullable();
-            $table->dateTime('email_verified_at');
+            $table->timestamp('email_verified_at')->nullable();
             //$table->unsignedBigInteger('plans_id');
             $table->rememberToken();
             $table->timestamps();

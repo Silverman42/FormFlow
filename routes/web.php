@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 /*Hide all registration routes*/
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -27,7 +27,8 @@ Route::name('admin.')
 ->prefix('admin')
 ->namespace('Admin')
 ->middleware([
-    'role:admin'
+    'role:admin',
+    'verified'
 ])
 ->group(base_path('routes/app/admin.php'));
 
@@ -39,6 +40,7 @@ Route::name('client.')
 ->prefix('client')
 ->namespace('Client')
 ->middleware([
-    'role:client'
+    'role:client',
+    'verified'
 ])
 ->group(base_path('routes/app/client.php'));
