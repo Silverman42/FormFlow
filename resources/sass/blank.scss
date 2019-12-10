@@ -1,0 +1,27 @@
+// Custom Css codes
+.custom-dropdown{
+    display: block;
+    position: relative;
+}
+.custom-dropdown::after{
+    content: "";
+    top: 100%;
+    height: 30px;
+    width: 100%;
+    display: block;
+    position: absolute;
+}
+.custom-dropdown>.dropdown-menu{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    --webkit-transition: opacity 0.3s ease-out;
+}
+.custom-dropdown:hover>.dropdown-menu,
+.custom-dropdown:focus>.dropdown-menu
+{
+    
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}

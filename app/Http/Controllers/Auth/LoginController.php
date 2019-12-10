@@ -47,10 +47,10 @@ class LoginController extends Controller
      */
     public function authenticated(Request $request, $user){
         if($user->hasAnyRole('client')){
-            return redirect()->route('client.dashboard');
+            return redirect('/client/dashboard/home');
         }
         if($user->hasAnyRole('admin')){
-            return redirect()->route('admin.dashboard');
+            return redirect('/admin/dashboard/home');
         }
         return redirect()->route('home');
     }

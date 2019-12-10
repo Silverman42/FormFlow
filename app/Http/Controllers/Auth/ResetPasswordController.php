@@ -44,8 +44,8 @@ class ResetPasswordController extends Controller
      */
     public function redirectPath(){
         if(auth()->user()->hasAnyRole('admin')){
-            return "/admin/dashboard";
+            return "/admin/dashboard/home";
         }
-        return "/client/dashboard";
+        return "/client/dashboard/home";
     }
 }

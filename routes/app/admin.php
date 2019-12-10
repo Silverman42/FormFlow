@@ -6,4 +6,4 @@
  /**
   * Admin Dashboard
   */
-Route::get('dashboard','DashboardController@index')->name('dashboard');
+Route::get('dashboard/{trail}','DashboardController@index')->where('trail','.*')->name('dashboard');
