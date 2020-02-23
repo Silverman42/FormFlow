@@ -5,22 +5,11 @@
 import Dashboard from './pages/index';
 
 /**
- * Forms Route components
- */
-import FormLayout from './pages/forms/index'
-import FormIndex from './pages/forms/index'
-
-/**
  * Integrations Route Components
  */
 import IntLayout from './pages/integrations/layout'
 import IntIndex from './pages/integrations/index'
 
-/**
- * Balance Route Components
- */
-import BalLayout from './pages/balance/layout'
-import BalIndex from './pages/balance/index'
 export default [
     {
         path : "/home",
@@ -28,11 +17,43 @@ export default [
     },
     {
         path : "/forms",
-        component: FormLayout,
+        component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/layout'),
         children:[
             {
-                path: "/",
-                component: FormIndex
+                path: "",
+                component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/index'),
+                name:"form.index",
+            },
+            {
+                path: "/forms/create-form",
+                component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/new_form'),
+                name: "form.new_form"
+            },
+            {
+                path: "/forms/view/:id",
+                component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/view'),
+                children:[
+                    {
+                        path:"",
+                        component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/view/submissions'),
+                        name: 'form.view.submission'
+                    },
+                    {
+                        path:"/forms/view/:id/messaging",
+                        component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/view/messaging'),
+                        name: 'form.view.messaging'
+                    },
+                    {
+                        path:"/forms/view/:id/settings",
+                        component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/view/setting'),
+                        name: 'form.view.setting'
+                    },
+                    {
+                        path:"/forms/view/:id/metrics",
+                        component: ()=>import(/* webpackChunkName: "client-pages-forms" */ './pages/forms/view/metrics'),
+                        name: 'form.view.metrics'
+                    }
+                ]
             }
         ]
     },
@@ -47,12 +68,13 @@ export default [
         ]
     },
     {
-        path : "/balance",
-        component: BalLayout,
+        path : "/subscriptions",
+        component: ()=>import(/* webpackChunkName: "client-pages-balance" */ './pages/subscriptions/layout'),
         children:[
             {
                 path: "/",
-                component: BalIndex
+                component: ()=>import(/* webpackChunkName: "client-pages-balance" */ './pages/subscriptions/index'),
+                name: 'balance.index'
             }
         ]
     }

@@ -68,6 +68,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /**
  * Stat Card
@@ -78,10 +81,6 @@ __webpack_require__.r(__webpack_exports__);
     iconColorClass: {
       type: String,
       "default": "bg-success"
-    },
-    dataCount: {
-      type: Number,
-      "default": 3000
     },
     cardHeader: {
       type: String,
@@ -271,10 +270,15 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "pd-b-10" }, [
-            _c("p", { staticClass: "tx-center tx-40 tx-bold" }, [
-              _vm._v(_vm._s(_vm.dataCount))
-            ])
-          ])
+            _c(
+              "p",
+              { staticClass: "tx-center tx-40 tx-bold" },
+              [_vm._t("dataCount")],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [_vm._t("extras")], 2)
         ]
       )
     ]

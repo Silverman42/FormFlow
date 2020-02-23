@@ -1,9 +1,13 @@
 {
-    "/js/admin.js": "/js/admin.js?id=0c5a7c5eea9e0b4ead6b",
+    "/js/admin.js": "/js/admin.js?id=ebdcd627af89fae4b88d",
     "/css/app.css": "/css/app.css?id=d41d8cd98f00b204e980",
-    "/js/client.js": "/js/client.js?id=7f0c0a13db0bc1a53dc4",
+    "/js/client.js": "/js/client.js?id=e1c5fba3f5ea036a3879",
+    "/admin-comp-list.js": "/admin-comp-list.js?id=4a4bdd0c27dbed483e58",
+    "/admin-comp-stat.js": "/admin-comp-stat.js?id=2371ab4f3415a9b11cbf",
+    "/client-comp-charts.js": "/client-comp-charts.js?id=198345f384f425e07cfb",
     "/client-comp-list.js": "/client-comp-list.js?id=d9ee19f7370ce2019178",
-    "/client-comp-stat.js": "/client-comp-stat.js?id=7742b62d28ae049dcbfe",
-    "/admin-comp-list.js": "/admin-comp-list.js?id=ca0685f7595bd68dc191",
-    "/admin-comp-stat.js": "/admin-comp-stat.js?id=4261294ea2161ec806cb"
+    "/client-comp-stats.js": "/client-comp-stats.js?id=b1fb63eeb6399545506b",
+    "/client-pages-balance.js": "/client-pages-balance.js?id=b9477f7aea14c13cf55e",
+    "/client-pages-forms.js": "/client-pages-forms.js?id=b3c4090a77cea5c56381",
+    "/vendors~client-comp-charts.js": "/vendors~client-comp-charts.js?id=8f977d8c78f3b404d7a4"
 }

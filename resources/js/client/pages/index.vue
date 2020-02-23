@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+    <transition-group tag="div" name="slide" appear>
+        <div key="header" class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
@@ -10,12 +10,12 @@
                 <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
             </div>
             <div class="d-none d-md-block">
-                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5">
-                    <file-icon class="wd-10 mg-r-5"></file-icon> Generate Report
-                </button>
+                <router-link :to="{name:'balance.index'}" class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5">
+                    <dollar-sign-icon class="wd-10 mg-r-5"></dollar-sign-icon> Purchase Plan
+                </router-link>
             </div>
         </div>
-        <section class="mg-t-50 mg-b-50">
+        <section key="stats" class="mg-t-50 mg-b-50">
             <stat-container>
                 <stat-action-card>
                     <div class="pd-b-10">
@@ -26,30 +26,33 @@
                         <p class="tx-center tx-gray-600">A form is identified by the form’s URL and Email</p>
                     </div>
                     <div class="pd-b-10">
-                        <button class="btn btn-block btn-uppercase btn-sm btn-outline-primary">Create New form</button>
+                        <router-link :to="{name:'form.new_form'}" class="btn btn-block btn-uppercase btn-sm btn-outline-primary">Create New form</router-link>
                     </div>
                 </stat-action-card>
-                <stat-card :dataCount="3000" cardHeader="Submissions" cardText="Total form submissions">
+                <stat-card cardHeader="Submissions" cardText="Total form submissions">
                     <mail-icon class="wd-16 tx-white"></mail-icon>
+                    <template slot="dataCount">3000</template>
                 </stat-card>
-                <stat-card :dataCount="3000" cardHeader="Form" cardText="Total forms created"
+                <stat-card cardHeader="Form" cardText="Total forms created"
                     iconColorClass="bg-warning">
                     <file-icon class="wd-16 tx-white"></file-icon>
+                    <template slot="dataCount">₦ 3000</template>
                 </stat-card>
-                <stat-card :dataCount="3000" cardHeader="Subscriptions" cardText="Total paid subscriptions"
+                <stat-card cardHeader="Subscriptions" cardText="Total paid subscriptions"
                     iconColorClass="bg-danger">
                     <dollar-sign-icon class="wd-16 tx-white"></dollar-sign-icon>
+                    <template slot="dataCount">₦ 3000</template>
                 </stat-card>
             </stat-container>
         </section>
         <!--Form list start-->
-        <section class="mg-t-50 mg-b-50">
+        <section key="list" class="mg-t-50 mg-b-50">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="wd-50p">
                     <h5>Form history</h5>
                     <p class=" tx-gray-600">List of recently created forms</p>
                 </div>
-                <button class="btn btn-uppercase btn-sm btn-primary">View All Forms</button>
+                <router-link :to="{name:'form.index'}" class="btn btn-uppercase btn-sm btn-outline-primary">View All Forms</router-link>
             </div>
             <list-container>
                 <list-item v-for="(list,index) in 6" :key="index" path="/home">  
@@ -71,7 +74,7 @@
             </list-container>
         </section>
         <!--Form List End-->
-    </div>
+    </transition-group>
 </template>
 <script>
     //Import Feather icons from vue feather icons

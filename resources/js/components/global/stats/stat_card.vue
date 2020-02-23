@@ -13,7 +13,10 @@
                 </div>
             </div>
             <div class="pd-b-10">
-                <p class="tx-center tx-40 tx-bold">{{dataCount}}</p>
+                <p class="tx-center tx-40 tx-bold"><slot name="dataCount"></slot></p>
+            </div>
+            <div>
+                <slot name="extras"></slot> <!--Add extra items to the modals-->
             </div>
         </div>
     </div>
@@ -29,10 +32,6 @@ export default {
         iconColorClass:{
             type: String,
             default: "bg-success"
-        },
-        dataCount:{
-            type: Number,
-            default: 3000
         },
         cardHeader:{
             type: String,

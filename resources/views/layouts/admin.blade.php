@@ -12,6 +12,7 @@
     <meta name="twitter:creator" content="Nkeze Sylvester">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="theme-color" content="#0168fa">
 
     <!--Social Media Meta tags
         <meta name="twitter:title" content="DashForge">
@@ -55,11 +56,11 @@
         <header class="navbar navbar-header navbar-header-fixed">
             <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
             <div class="navbar-brand">
-                <a href="../../index.html" class="df-logo">Form<span>flow</span></a>
+                <router-link :to="{path:'/home'}" class="df-logo">Form<span>flow</span></router-link>
             </div><!-- navbar-brand -->
             <div id="navbarMenu" class="navbar-menu-wrapper">
                 <div class="navbar-menu-header">
-                    <a href="../../index.html" class="df-logo">Form<span>flow</span></a>
+                    <router-link :to="{path:'/home'}" class="df-logo">Form<span>flow</span></router-link>
                     <a id="mainMenuClose" href=""><i data-feather="x"></i></a>
                 </div><!-- navbar-menu-header -->
                 <ul class="nav navbar-menu">

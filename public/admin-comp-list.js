@@ -65,6 +65,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /**
  * List Contaner
@@ -75,6 +89,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     SearchIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["SearchIcon"],
     FilterIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["FilterIcon"],
+    RefreshCcwIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["RefreshCcwIcon"],
+    ListIcon: vue_feather_icons__WEBPACK_IMPORTED_MODULE_0__["ListIcon"],
     Pagination: function Pagination() {
       return Promise.all(/*! import() | client-comp-list */[__webpack_require__.e("admin-comp-list"), __webpack_require__.e("client-comp-list")]).then(__webpack_require__.bind(null, /*! ./pagination */ "./resources/js/components/global/list/pagination.vue"));
     }
@@ -91,13 +107,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      filterIsActive: false
+      filterIsActive: false,
+      sizeIsActive: false
     };
   },
   computed: {},
   methods: {
     toggleFilterMenu: function toggleFilterMenu() {
       this.filterIsActive = !this.filterIsActive;
+      this.sizeIsActive = false;
+    },
+    toggleSizeMenu: function toggleSizeMenu() {
+      this.sizeIsActive = !this.sizeIsActive;
+      this.filterIsActive = false;
     }
   }
 });
@@ -243,32 +265,11 @@ var render = function() {
           "div",
           {
             staticClass:
-              "d-flex flex-wrap align-content-center justify-content-between"
+              "row align-content-center justify-content-between bg-white pd-t-5 pd-b-5 t-0",
+            staticStyle: { position: "sticky", "z-index": "10" }
           },
           [
-            _c("div", { staticClass: "wd-40p d-flex align-items-center" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "tx-uppercase tx-bold tx-12 filter-btn",
-                  class: { active: _vm.filterIsActive },
-                  attrs: { href: "" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.toggleFilterMenu($event)
-                    }
-                  }
-                },
-                [
-                  _c("filter-icon", { staticClass: "wd-16 " }),
-                  _vm._v("\n                Filter By\n            ")
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "wd-60p" }, [
+            _c("div", { staticClass: "col-6 col-md-7" }, [
               _c("div", { staticClass: "input-group input-group-lg" }, [
                 _c("input", {
                   staticClass: "form-control bd-r-0",
@@ -297,10 +298,93 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "wd-100p overflow-hidden row",
+                staticClass:
+                  "col-6 col-md-5 d-flex align-items-center justify-content-end"
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "tx-uppercase mg-l-5 tx-bold tx-12 filter-btn d-flex justify-content-between align-items-center",
+                    class: { active: _vm.filterIsActive },
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.toggleFilterMenu($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("filter-icon", { staticClass: "wd-16 mg-r-5" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "d-none d-sm-block" }, [
+                      _vm._v("Filter By")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "tx-uppercase mg-l-5 tx-bold tx-12 filter-btn d-flex justify-content-between align-items-center",
+                    class: { active: _vm.sizeIsActive },
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.toggleSizeMenu($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("list-icon", { staticClass: "wd-16 mg-r-5" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "d-none d-sm-block" }, [
+                      _vm._v("Size")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "tx-uppercase mg-l-5  tx-bold tx-12 filter-btn d-flex justify-content-between align-items-center",
+                    attrs: { href: "" }
+                  },
+                  [
+                    _c("refresh-ccw-icon", { staticClass: "wd-16 mg-r-5" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "d-none d-sm-block" }, [
+                      _vm._v("refresh")
+                    ])
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "wd-100p overflow-hidden row pd-l-15 pd-r-15",
                 class: { "d-none": !_vm.filterIsActive }
               },
               [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "wd-100p overflow-hidden row pd-l-15 pd-r-15",
+                class: { "d-none": !_vm.sizeIsActive }
+              },
+              [_vm._m(3)]
             )
           ]
         )
@@ -380,6 +464,27 @@ var staticRenderFns = [
         _c("input", {
           staticClass: "form-control",
           attrs: { type: "text", placeholder: "" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "form-group col-6 col-md-4 col-lg-3 mg-t-10 mg-b-10" },
+      [
+        _c(
+          "label",
+          { staticClass: "d-block tx-gray-600", attrs: { for: "" } },
+          [_vm._v("Items per page")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "number", placeholder: "" }
         })
       ]
     )
