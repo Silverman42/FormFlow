@@ -5,6 +5,7 @@
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
     <meta name="author" content="ThemePixels">
     <meta charset="utf-8">
+    <meta name="theme-color" content="#0168fa">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
 
     <!-- Favicon -->

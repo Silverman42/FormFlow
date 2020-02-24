@@ -48,12 +48,12 @@ class PrepareApp extends Command
         $this->info('New migrations are been fired up, relax while you get served...');
 
         //generate new cipher keys
-        Artisan::call('generate:key');
+        Artisan::call('key:generate');
 
         //Run fresh migrations
-        Artisan::call('migrate:refresh');
+        Artisan::call('migrate:fresh');
         $this->CreateClient();
-        $this->CreateSuperAdmin();
+        $this->CreateAdmin();
         $this->info('Your app is prepared and ready fly. Awesome !!');
     }
 
@@ -62,10 +62,10 @@ class PrepareApp extends Command
      * 
      * @return mixed
      */
-    public function CreateSuperAdmin(){
+    public function CreateAdmin(){
         $admin = new User;
         $admin->email = 'admin@test.com';
-        $admin->passowrd = Hash::make('secret');
+        $admin->password = Hash::make('secret');
         $admin->remember_token = Str::random(10);
         $admin->email_verified_at = now();
         $admin->first_name = 'Super';
@@ -73,10 +73,10 @@ class PrepareApp extends Command
         $admin->save();
 
         //create role
-        $role = Role::where('name','super-admin')->firstorCreate(['name'=>'super-admin']);
+        $role = Role::create(['name'=>'admin']);
 
         //assign role
-        $admin->assignRole('super-admin');
+        $admin->assignRole('admin');
         return $this->info('New user created and assigned the role of admin');
     }
 
@@ -88,7 +88,7 @@ class PrepareApp extends Command
     public function CreateClient(){
         $client = new User;
         $client->email = 'client@test.com';
-        $client->passowrd = Hash::make('secret');
+        $client->password = Hash::make('secret');
         $client->remember_token = Str::random(10);
         $client->email_verified_at = now();
         $client->first_name = 'Great';
@@ -96,7 +96,7 @@ class PrepareApp extends Command
         $client->save();
 
         //create role
-        $role = Role::where('name','client')->firstorCreate(['name'=>'client']);
+        $role = Role::create(['name'=>'client']);
         $client->assignRole('client');
         return $this->info('New user created and assigned the role of client');
     }

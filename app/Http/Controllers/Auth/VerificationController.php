@@ -38,4 +38,18 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
+
+    /**
+     * Redirect to user dashboard based on user's role
+     * @return string 
+     */
+    public function redirectPath(){
+        if(auth()->check()){
+            if(auth()->user()->hasAnyRole('admin')){
+                return '/admin/dashboard/home';
+            }
+            return '/client/dashboard/home';
+        }
+        return '/home';
+    }
 }

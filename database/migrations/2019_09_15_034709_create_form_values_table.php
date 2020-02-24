@@ -23,7 +23,7 @@ class CreateFormValuesTable extends Migration
         });
 
         Schema::table('form_values', function (Blueprint $table) {
-            $table->foreign('forms_id')->references('id')->on(forms);
+            $table->foreign('forms_id')->references('id')->on("forms");
         });
     }
 

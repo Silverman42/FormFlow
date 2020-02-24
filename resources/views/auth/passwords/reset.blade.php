@@ -6,6 +6,7 @@
 <div class="wd-100p d-flex flex-column mg-b-40">
     <form action="{{ route('password.update') }}" method="POST">
         @csrf
+        <input type="text" hidden name="token" value="{{$token}}">
         <div class="form-group">
             <div class="d-flex justify-content-between mg-b-5">
                 <label class="mg-b-0-f">Email</label>
@@ -37,7 +38,9 @@
             <input id="password_confirm" type="password" name="password_confirmation" class="form-control"
                 placeholder="Enter your password">
         </div>
-        <button type="submit" class="btn btn-brand-02 mg-sm-l-10 mg-t-10 mg-sm-t-0">Reset Password</button>
+        <div class="d-flex wd-100p justify-content-end">
+            <button type="submit" class="btn btn-brand-02 mg-t-10 mg-sm-t-0">Reset Password</button>
+        </div>
     </form>
 </div>
 @endsection

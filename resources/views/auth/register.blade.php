@@ -16,7 +16,7 @@
             <div class="d-flex justify-content-between">
                 <div class="form-group wd-45p">
                     <label for="first_name">Firstname</label>
-                    <input type="text" required id="first_name" name="first_name"
+                    <input type="text" required id="first_name" value="{{ old('first_name') }}" name="first_name"
                         class="form-control @error('first_name') is-invalid @enderror"
                         placeholder="Enter your firstname">
                     @error('first_name')
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group wd-45p">
                     <label for="last_name">Lastname</label>
-                    <input type="text" required id="last_name" name="last_name"
+                    <input type="text" required id="last_name" name="last_name" value="{{ old('last_name') }}"
                         class="form-control @error('last_name') is-invalid @enderror" placeholder="Enter your lastname">
                     @error('last_name')
                     <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" id="email" required class="form-control @error('email') is-invalid @enderror" name="email"
+                <input type="email" id="email" required value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email"
                     placeholder="Enter your email address">
                 @error('email')
                 <span class="invalid-feedback" role="alert">
